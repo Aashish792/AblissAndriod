@@ -17,6 +17,15 @@ public interface API {
             @Field("email") String email,
             @Field("password") String password
 
-
     );
+
+    @FormUrlEncoded
+    @POST("Validusers/")
+    Call<ResponseBody> Validateuser(
+            @Field("username") String username,
+            @Field("password") String password
+    );
+
+
+
 }
