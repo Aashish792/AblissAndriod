@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">AblissAdrad</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Name</string>
+    <string name="nav_header_subtitle">Email</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_information">Information</string>
+    <string name="title_activity_category">Category</string>
+    <string name="title_activity_forum">Forum</string>
+    <string name="Cattitle">Category Title</string>
+    <string name="category">Categories</string>
+    <string name="categorydesc">Click here to list all the differently abled category.</string>
+    <string name="menu_home">Home</string>
+    <string name="category_menu">Category</string>
+    <string name="information_menu">Information</string>
+    <string name="forum_menu">Forum</string>
+    <string name="title_activity_categoryactivity">Categoryactivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="todo">TODO</string>
+</resources>

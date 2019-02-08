@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E9ab17</color>
+    <color name="colorPrimaryDark">#C68e17</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="Titlehome">#FFFF</color>
+    <color name="Titlebarcolor">#fdd017</color>
+    <color name="buttonsignup">#2d2d2d</color>
+    <color name="mainbackground"></color>
+</resources>
