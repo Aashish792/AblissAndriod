@@ -152,12 +152,13 @@
 
         <Button
             android:id="@+id/btn_signup"
-            android:layout_width="100dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:background="@drawable/button_signup"
             android:fontFamily="monospace"
             android:text="@string/sign_up"
+            android:textSize="25sp"
             android:textColor="#ffffff" />
     </RelativeLayout>
 
