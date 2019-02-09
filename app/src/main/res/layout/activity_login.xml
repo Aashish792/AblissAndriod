@@ -38,6 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login Here"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:paddingBottom="10dp"
 
@@ -86,7 +88,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/button_signup"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="#FFFFFF" />
@@ -99,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/button_signup"
         android:layout_alignBottom="@id/buttonLogin"
         android:text="SignUp"
         android:textAllCaps="false"

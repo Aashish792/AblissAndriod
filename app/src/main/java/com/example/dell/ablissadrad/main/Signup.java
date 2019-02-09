@@ -1,5 +1,6 @@
 package com.example.dell.ablissadrad.main;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -49,7 +50,6 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 
                 userSignup();
-                Toast.makeText(Signup.this,"Sign Up Sucessful",Toast.LENGTH_SHORT).show();
 
 
             }
@@ -64,6 +64,20 @@ public class Signup extends AppCompatActivity {
         String username = editTextusername.getText().toString().trim();
         String name = editTextname.getText().toString().trim();
         String confirmpassword = editTextcpassword.getText().toString().trim();
+
+
+        if (name.isEmpty()){
+            editTextname.setError("Please enter full name");
+            editTextname.requestFocus();
+            return;
+
+        }
+
+        if (username.isEmpty()){
+            editTextusername.setError("Please enter the username");
+            editTextusername.requestFocus();
+            return;
+        }
 
         if (email.isEmpty()){
             editTextemail.setError("Please enter the email ");
@@ -83,22 +97,23 @@ public class Signup extends AppCompatActivity {
             editTextpassword.requestFocus();
             return;
         }
+//
+//        if (username.isEmpty()){
+//            editTextusername.setError("Please enter the username");
+//            editTextusername.requestFocus();
+//        }
 
-        if (username.isEmpty()){
-            editTextusername.setError("Please enter the username");
-            editTextusername.requestFocus();
-        }
-
-        if (name.isEmpty()){
-            editTextname.setError("Please enter full name");
-            editTextname.requestFocus();
-
-        }
+//        if (name.isEmpty()){
+//            editTextname.setError("Please enter full name");
+//            editTextname.requestFocus();
+//
+//        }
 
         if (!confirmpassword.equals(password)){
             editTextcpassword.setError("Password do not match");
             editTextcpassword.requestFocus();
             Toast.makeText(Signup.this,"Password do not match",Toast.LENGTH_SHORT).show();
+            return;
 
         }
 
@@ -109,7 +124,13 @@ public class Signup extends AppCompatActivity {
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                     try {
                         s = response.body().string();
-                        Toast.makeText(Signup.this,"Correct"+s,Toast.LENGTH_LONG).show();
+                        Toast.makeText(Signup.this,"Sign Up Sucessful",Toast.LENGTH_SHORT).show();
+
+
+                        Intent intent = new Intent(Signup.this,Login.class);
+                        startActivity(intent);
+
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
