@@ -32,18 +32,11 @@
         android:layout_margin="20dp"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@drawable/border"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login Here"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:paddingBottom="10dp"
+        >
 
-            />
 
 
         <EditText
@@ -51,7 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
-            android:hint="Username"
+            android:hint="Enter User name"
+            android:textSize="25dp"
             android:inputType="textPersonName"
             android:textAlignment="center" />
 
@@ -60,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
-            android:hint="password"
+            android:textSize="25dp"
+            android:hint="Enter Your password"
             android:inputType="textPassword"
             android:textAlignment="center" />
 
