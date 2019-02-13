@@ -1,5 +1,6 @@
 package com.example.dell.ablissadrad.main;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -7,14 +8,41 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
+
+import android.widget.Toast;
 
 import com.example.dell.ablissadrad.R;
+import com.example.dell.ablissadrad.Utilities.API;
+import com.example.dell.ablissadrad.Utilities.RetrofitClient;
+import com.example.dell.ablissadrad.adapter.Document_Adapter;
+import com.example.dell.ablissadrad.data.Documents;
+import com.example.dell.ablissadrad.storage.SharedPreferenceManager;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.FormUrlEncoded;
 
 public class Information extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Document_Adapter document_adapter;
+    List<Documents> documentsList;
+    RecyclerView recyclerViewinformation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +50,11 @@ public class Information extends AppCompatActivity
         setContentView(R.layout.activity_information);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final ProgressDialog progressDialog = new ProgressDialog(Information.this);
+        progressDialog.setTitle("Fetching Data");
+        progressDialog.setMessage("Please wait while we fetch the data.");
+        progressDialog.show();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -32,6 +65,55 @@ public class Information extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        recyclerViewinformation = findViewById(R.id.recyclerview_information);
+
+        documentsList = new ArrayList<>();
+
+        try {
+            ServerSocket socket = new ServerSocket(8888);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Call<List<Documents>> calldocuments = RetrofitClient.getmInstance().getApi().getDocuments();
+
+        calldocuments.enqueue(new Callback<List<Documents>>() {
+            @Override
+            public void onResponse(Call<List<Documents>> call, Response<List<Documents>> response) {
+                progressDialog.dismiss();
+//
+
+
+
+                List<Documents> docs = response.body();
+
+
+                for (Documents h: docs){
+                    Log.d("name",h.getTitle());
+                    Log.d("bio",h.getDescription());
+                }
+
+                Document_Adapter document_adapter = new Document_Adapter(this,docs);
+                recyclerViewinformation.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                recyclerViewinformation.setAdapter(document_adapter);
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Documents>> call, Throwable t) {
+
+                progressDialog.dismiss();
+                Toast.makeText(Information.this,"NOt Working"+t.getMessage(),Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
 
     @Override
@@ -93,10 +175,12 @@ public class Information extends AppCompatActivity
 //                Intent s = new Intent(Home.this,Tools.class);
 //                startActivity(s);
 //                break;
-//            case R.id.nav_exit:
-//                Intent t= new Intent(Home.this,Tools.class);
-//                startActivity(t);
-//                break;
+            case R.id.nav_Logout:
+                SharedPreferenceManager.getmInstance(getApplicationContext()).clear();
+                Intent t= new Intent(Information.this,Login.class);
+                Toast.makeText(Information.this,"Logout Sucessful",Toast.LENGTH_LONG).show();
+                startActivity(t);
+                break;
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

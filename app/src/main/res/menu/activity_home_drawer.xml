@@ -31,7 +31,7 @@
                 android:title="Setting" />
 
             <item
-                android:id="@+id/nav_exit"
+                android:id="@+id/nav_Logout"
                 android:icon="@drawable/exit"
                 android:title="Logout" />
         </menu>

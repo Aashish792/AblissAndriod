@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.dell.ablissadrad.CategoryActivity;
+import com.example.dell.ablissadrad.main.CategoryActivity;
 import com.example.dell.ablissadrad.R;
 import com.example.dell.ablissadrad.data.Category;
 

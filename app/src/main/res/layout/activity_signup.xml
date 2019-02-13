@@ -20,7 +20,7 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
-            android:contentDescription="@string/todo"
+
             android:src="@drawable/logoadrad" />
     </RelativeLayout>
 
@@ -86,8 +86,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="TODO"
-                    android:src="@drawable/email_signup" />
+                     android:src="@drawable/email_signup" />
 
                 <EditText
                     android:id="@+id/edittext_email"
@@ -106,7 +105,6 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="TODO"
                     android:src="@drawable/signup_enterpassword" />
 
                 <EditText
@@ -127,7 +125,6 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="TODO"
                     android:src="@drawable/signup_confirmpassword" />
 
                 <EditText

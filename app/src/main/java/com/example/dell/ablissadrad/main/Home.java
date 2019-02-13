@@ -1,7 +1,9 @@
 package com.example.dell.ablissadrad.main;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -12,10 +14,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dell.ablissadrad.adapter.RecycleViewHomeAdapter;
 import com.example.dell.ablissadrad.data.Home_Data;
 import com.example.dell.ablissadrad.R;
+import com.example.dell.ablissadrad.data.User;
+import com.example.dell.ablissadrad.storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +29,7 @@ import java.util.List;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private TextView txtnavname,txtusername;
 
     List<Home_Data> lsthome;
 
@@ -35,6 +42,9 @@ public class Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
 
         lsthome = new ArrayList<>();
@@ -57,6 +67,20 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (!SharedPreferenceManager.getmInstance(this).isLoggedIn()){
+
+            Intent intent = new Intent(this, Home.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+
+        }
     }
 
     @Override
@@ -73,6 +97,13 @@ public class Home extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+        txtnavname = findViewById(R.id.textviewnamenav);
+        txtusername = findViewById(R.id.textViewusernamenav);
+        User user = SharedPreferenceManager.getmInstance(this).getUser();
+        String s = user.getName();
+//        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
+        txtusername.setText(user.getName());
+        txtnavname.setText(user.getUsername());
         return false;
     }
 
@@ -119,10 +150,12 @@ public class Home extends AppCompatActivity
 //                Intent s = new Intent(Home.this,Tools.class);
 //                startActivity(s);
 //                break;
-//            case R.id.nav_exit:
-//                Intent t= new Intent(Home.this,Tools.class);
-//                startActivity(t);
-//                break;
+            case R.id.nav_Logout:
+            SharedPreferenceManager.getmInstance(getApplicationContext()).clear();
+            Intent t= new Intent(Home.this,Login.class);
+            Toast.makeText(Home.this,"Logout Sucessful",Toast.LENGTH_LONG).show();
+            startActivity(t);
+                break;
 
         }
 

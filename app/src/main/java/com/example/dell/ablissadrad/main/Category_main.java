@@ -13,10 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dell.ablissadrad.data.Category;
 import com.example.dell.ablissadrad.R;
 import com.example.dell.ablissadrad.adapter.RecyclerViewAdapter;
+import com.example.dell.ablissadrad.data.User;
+import com.example.dell.ablissadrad.storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +27,7 @@ import java.util.List;
 public class Category_main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView tvtitle;
+    private TextView tvtitle,txtnavname,txtusername;
     List<Category> lstcat;
 
 
@@ -87,6 +90,13 @@ public class Category_main extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+        txtnavname = findViewById(R.id.textviewnamenav);
+        txtusername = findViewById(R.id.textViewusernamenav);
+        User user = SharedPreferenceManager.getmInstance(this).getUser();
+        String s = user.getName();
+        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
+        txtusername.setText(user.getName());
+        txtnavname.setText(user.getUsername());
         return false;
     }
 

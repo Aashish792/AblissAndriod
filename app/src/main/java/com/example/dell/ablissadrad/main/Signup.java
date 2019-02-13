@@ -1,5 +1,6 @@
 package com.example.dell.ablissadrad.main;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.dell.ablissadrad.R;
 import com.example.dell.ablissadrad.Utilities.RetrofitClient;
+import com.example.dell.ablissadrad.storage.SharedPreferenceManager;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -21,6 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Signup extends AppCompatActivity {
+
 
     EditText editTextemail,editTextpassword,editTextusername,editTextname,editTextcpassword;
     Button  buttonsignup;
@@ -45,16 +48,29 @@ public class Signup extends AppCompatActivity {
         editTextemail =  findViewById(R.id.edittext_email);
         buttonsignup =  findViewById(R.id.btn_signup);
 
+
         buttonsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 userSignup();
 
 
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (SharedPreferenceManager.getmInstance(this).isLoggedIn()){
+
+            Intent intent = new Intent(this, Home.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+
+        }
     }
 
     public  void userSignup(){
@@ -97,23 +113,14 @@ public class Signup extends AppCompatActivity {
             editTextpassword.requestFocus();
             return;
         }
-//
-//        if (username.isEmpty()){
-//            editTextusername.setError("Please enter the username");
-//            editTextusername.requestFocus();
-//        }
-
-//        if (name.isEmpty()){
-//            editTextname.setError("Please enter full name");
-//            editTextname.requestFocus();
-//
-//        }
 
         if (!confirmpassword.equals(password)){
             editTextcpassword.setError("Password do not match");
             editTextcpassword.requestFocus();
             Toast.makeText(Signup.this,"Password do not match",Toast.LENGTH_SHORT).show();
             return;
+
+
 
         }
 

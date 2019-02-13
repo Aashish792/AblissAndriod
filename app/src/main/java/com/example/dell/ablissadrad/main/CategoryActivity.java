@@ -1,9 +1,11 @@
-package com.example.dell.ablissadrad;
+package com.example.dell.ablissadrad.main;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.dell.ablissadrad.R;
 
 public class CategoryActivity extends AppCompatActivity {
     private TextView tvtitle;
