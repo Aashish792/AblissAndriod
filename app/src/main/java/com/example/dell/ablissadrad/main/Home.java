@@ -1,9 +1,7 @@
 package com.example.dell.ablissadrad.main;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -43,10 +41,6 @@ public class Home extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
-
-
         lsthome = new ArrayList<>();
         lsthome.add(new Home_Data("Categories","Click here to list all the differently abled category",R.drawable.cat_white));
         lsthome.add(new Home_Data("Information","Click here to list all the information",R.drawable.info_white));
@@ -69,14 +63,14 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
     }
-
+//
     @Override
     protected void onStart() {
         super.onStart();
 
         if (!SharedPreferenceManager.getmInstance(this).isLoggedIn()){
 
-            Intent intent = new Intent(this, Home.class);
+            Intent intent = new Intent(this, Login.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
 
@@ -100,8 +94,6 @@ public class Home extends AppCompatActivity
         txtnavname = findViewById(R.id.textviewnamenav);
         txtusername = findViewById(R.id.textViewusernamenav);
         User user = SharedPreferenceManager.getmInstance(this).getUser();
-        String s = user.getName();
-//        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
         txtusername.setText(user.getName());
         txtnavname.setText(user.getUsername());
         return false;
@@ -146,10 +138,7 @@ public class Home extends AppCompatActivity
                 Intent f = new Intent(Home.this,Forum.class);
                 startActivity(f);
                 break;
-//            case R.id.nav_setting:
-//                Intent s = new Intent(Home.this,Tools.class);
-//                startActivity(s);
-//                break;
+
             case R.id.nav_Logout:
             SharedPreferenceManager.getmInstance(getApplicationContext()).clear();
             Intent t= new Intent(Home.this,Login.class);

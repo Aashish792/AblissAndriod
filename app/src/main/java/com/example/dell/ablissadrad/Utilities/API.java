@@ -1,6 +1,7 @@
 package com.example.dell.ablissadrad.Utilities;
 
 import com.example.dell.ablissadrad.data.Documents;
+import com.example.dell.ablissadrad.data.Documents_List;
 import com.example.dell.ablissadrad.data.LoginResponse;
 
 import java.util.List;
@@ -12,6 +13,8 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface API {
 
@@ -23,7 +26,6 @@ public interface API {
             @Field("username") String username,
             @Field("email") String email,
             @Field("password") String password
-
     );
 
     @FormUrlEncoded
@@ -34,9 +36,8 @@ public interface API {
     );
 
     @GET("documentation")
-
     Call<List<Documents>> getDocuments();
 
-
-
+    @GET("search/{category}")
+    Call<List<Documents>> getdocs(@Path("category") String title);
 }

@@ -17,8 +17,7 @@
         <activity
             android:name=".main.Home"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
+            android:theme="@style/AppTheme.NoActionBar" >
 
 
         </activity>
@@ -35,10 +34,9 @@
             android:label="@string/title_activity_forum"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".main.CategoryActivity" />
-        <activity android:name=".main.Signup">
-
-        </activity>
+        <activity android:name=".main.Signup" />
         <activity android:name=".main.Login">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

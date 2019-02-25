@@ -3,21 +3,17 @@ package com.example.dell.ablissadrad.main;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.util.Patterns;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.io.IOException;
 import java.net.ServerSocket;
-import okhttp3.ResponseBody;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 
 
 import com.example.dell.ablissadrad.R;
@@ -103,18 +99,17 @@ public class Login extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
 
-                String s = loginResponse.toString();
-                Toast.makeText(Login.this,"Data is "+s,Toast.LENGTH_LONG).show();
-                if (s.length()<=3){
+                if(loginResponse == null || loginResponse.isError()){
                     editTextpassword.setError("User does not exists ");
-                    Toast.makeText(Login.this,"Message"+loginResponse.getFields().getName(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this,"Message",Toast.LENGTH_LONG).show();
                     return;
-                }
-                else {
-                    SharedPreferenceManager.getmInstance(Login.this).saveuser(loginResponse.getFields());
-                        Intent intent = new Intent(Login.this, Home.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                       startActivity(intent);
+
+                }else {
+                      SharedPreferenceManager.getmInstance(Login.this).saveuser(loginResponse.getFields());
+                      Intent intent = new Intent(Login.this, Home.class);
+                      intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                      startActivity(intent);
+
 
                 }
             }

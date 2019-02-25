@@ -1,13 +1,13 @@
 package com.example.dell.ablissadrad.adapter;
 
-import android.content.Context;
+//To display documents in recycler view
+
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.dell.ablissadrad.R;
@@ -27,11 +27,14 @@ public class Document_Adapter extends RecyclerView.Adapter<Document_Adapter.Docu
         this.mContext = mContext;
     }
 
-    @NonNull
+
     @Override
     public DocumentViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_documents,viewGroup,false);
+
+        View view ;
+        LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
+        view = layoutInflater.inflate(R.layout.card_tester,viewGroup,false);
 
         return new DocumentViewHolder(view);
     }
@@ -41,6 +44,8 @@ public class Document_Adapter extends RecyclerView.Adapter<Document_Adapter.Docu
 
         final Documents documents = documentsList.get(i);
         documentViewHolder.documentcat.setText(documents.getCategory());
+        documentViewHolder.documentdesc.setText(documents.getDescription());
+
 
     }
 
@@ -52,6 +57,7 @@ public class Document_Adapter extends RecyclerView.Adapter<Document_Adapter.Docu
     public class DocumentViewHolder extends RecyclerView.ViewHolder{
         CardView documentcardview;
         TextView documentcat;
+        TextView documentdesc;
 
 
 
@@ -59,10 +65,9 @@ public class Document_Adapter extends RecyclerView.Adapter<Document_Adapter.Docu
         public DocumentViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
-
             documentcardview = itemView.findViewById(R.id.cardviewinformation_id);
-            documentcat = itemView.findViewById(R.id.textviewcatdocs);
+            documentdesc = itemView.findViewById(R.id.textviewcatdocs);
+            documentcat = itemView.findViewById(R.id.description);
 
 
 

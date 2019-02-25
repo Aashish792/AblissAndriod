@@ -1,5 +1,7 @@
 package com.example.dell.ablissadrad.adapter;
 
+//To display contents of home  in recycler view
+
 
 import android.content.Context;
 import android.content.Intent;

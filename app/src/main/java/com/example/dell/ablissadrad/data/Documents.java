@@ -1,6 +1,14 @@
 package com.example.dell.ablissadrad.data;
 
+// Just a class to create constructor of activity items
+
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class Documents {
+
+
     private String doc_category;
     private String title;
     private String date;

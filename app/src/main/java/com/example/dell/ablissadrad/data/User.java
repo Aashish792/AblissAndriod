@@ -1,4 +1,5 @@
 package com.example.dell.ablissadrad.data;
+// Just a class to store user details
 
 public class User {
 

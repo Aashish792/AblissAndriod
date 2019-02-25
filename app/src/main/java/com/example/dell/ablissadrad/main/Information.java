@@ -14,15 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.ablissadrad.R;
-import com.example.dell.ablissadrad.Utilities.API;
 import com.example.dell.ablissadrad.Utilities.RetrofitClient;
 import com.example.dell.ablissadrad.adapter.Document_Adapter;
 import com.example.dell.ablissadrad.data.Documents;
+import com.example.dell.ablissadrad.data.User;
 import com.example.dell.ablissadrad.storage.SharedPreferenceManager;
 
 import java.io.IOException;
@@ -33,9 +33,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.FormUrlEncoded;
 
 public class Information extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +40,7 @@ public class Information extends AppCompatActivity
     Document_Adapter document_adapter;
     List<Documents> documentsList;
     RecyclerView recyclerViewinformation;
+    TextView txtnavname,txtusername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +128,13 @@ public class Information extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+        txtnavname = findViewById(R.id.textviewnamenav);
+        txtusername = findViewById(R.id.textViewusernamenav);
+        User user = SharedPreferenceManager.getmInstance(this).getUser();
+        txtusername.setText(user.getName());
+        txtnavname.setText(user.getUsername());
         return false;
+
     }
 
     @Override

@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.dell.ablissadrad.R;
+import com.example.dell.ablissadrad.storage.SharedPreferenceManager;
 
 public class Forum extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -91,10 +93,12 @@ public class Forum extends AppCompatActivity
 //                Intent s = new Intent(Home.this,Tools.class);
 //                startActivity(s);
 //                break;
-//            case R.id.nav_exit:
-//                Intent t= new Intent(Home.this,Tools.class);
-//                startActivity(t);
-//                break;
+           case R.id.nav_Logout:
+            SharedPreferenceManager.getmInstance(getApplicationContext()).clear();
+            Intent t= new Intent(Forum.this,Login.class);
+            Toast.makeText(Forum.this,"Logout Sucessful",Toast.LENGTH_LONG).show();
+            startActivity(t);
+                break;
 
         }
 

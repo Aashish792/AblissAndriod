@@ -30,9 +30,6 @@ public class Category_main extends AppCompatActivity
     private TextView tvtitle,txtnavname,txtusername;
     List<Category> lstcat;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +37,7 @@ public class Category_main extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tvtitle = (TextView) findViewById(R.id.txtviewtitle) ;
-
-
-//
-
+        tvtitle = findViewById(R.id.txtviewtitle) ;
 
         lstcat = new ArrayList<>();
         lstcat.add(new Category("Visual Impairment", "For those with visual aid",R.drawable.visually ));
@@ -58,13 +51,10 @@ public class Category_main extends AppCompatActivity
         lstcat.add(new Category("Speaking Impairment","For those who require speaking aid",R.drawable.speaking));
         lstcat.add(new Category("Mental Impairment","For those who require mental aid",R.drawable.physical));
 
-        RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview);
+        RecyclerView myrv =  findViewById(R.id.recyclerview);
         RecyclerViewAdapter myAdapeter = new RecyclerViewAdapter(this,lstcat);
         myrv.setLayoutManager(new GridLayoutManager(this,3));
         myrv.setAdapter(myAdapeter);
-
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -93,8 +83,6 @@ public class Category_main extends AppCompatActivity
         txtnavname = findViewById(R.id.textviewnamenav);
         txtusername = findViewById(R.id.textViewusernamenav);
         User user = SharedPreferenceManager.getmInstance(this).getUser();
-        String s = user.getName();
-        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
         txtusername.setText(user.getName());
         txtnavname.setText(user.getUsername());
         return false;

@@ -1,5 +1,6 @@
 package com.example.dell.ablissadrad.adapter;
 
+//To display categories in recycler view
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -48,15 +49,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                Intent intent = new Intent(mContext,CategoryActivity.class);
                intent.putExtra("CategoryTitle",mData.get(position).getTitle());
                mContext.startActivity(intent);
-
-
-
            }
        });
-
-
-
-
     }
 
     @Override
@@ -72,13 +66,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public MyviewHolder(@NonNull View itemView) {
             super(itemView);
-
-
             tv_category_title = (TextView) itemView.findViewById(R.id.category_title);
             cat_image_thumbnai = (ImageView) itemView.findViewById(R.id.category_image);
             cardView = (CardView) itemView.findViewById(R.id.cardview_id);
-
-
         }
     }
 }
