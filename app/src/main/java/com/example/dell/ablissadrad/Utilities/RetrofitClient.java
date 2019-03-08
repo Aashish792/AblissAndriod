@@ -13,7 +13,6 @@ public class RetrofitClient {
     private Retrofit retrofit;
 
 
-
     private RetrofitClient(){
 
         retrofit = new Retrofit.Builder().baseUrl(baseurl)

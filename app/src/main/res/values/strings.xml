@@ -28,4 +28,5 @@
     <string name="todo">TODO</string>
     <string name="text_description">Description</string>
     <string name="title_activity_setting">Setting</string>
+    <string name="title_activity_document_category">DocumentCategory</string>
 </resources>

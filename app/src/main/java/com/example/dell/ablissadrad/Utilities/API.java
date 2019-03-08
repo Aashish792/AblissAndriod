@@ -40,4 +40,7 @@ public interface API {
 
     @GET("search/{category}")
     Call<List<Documents>> getdocs(@Path("category") String title);
+
+    @GET("doc_category/{category}")
+    Call<List<Documents>> getdocuments(@Path("category")String title);
 }

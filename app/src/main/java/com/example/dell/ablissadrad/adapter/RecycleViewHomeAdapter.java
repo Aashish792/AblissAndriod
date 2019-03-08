@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.dell.ablissadrad.DocumentCategoryMain;
 import com.example.dell.ablissadrad.main.Category_main;
 import com.example.dell.ablissadrad.data.Home_Data;
 import com.example.dell.ablissadrad.main.Information;
@@ -68,7 +69,7 @@ public class RecycleViewHomeAdapter extends RecyclerView.Adapter<RecycleViewHome
                 else if (mhlist.get(position).getHtitle().toUpperCase().equals("INFORMATION")){
 
 
-                    Intent intent = new Intent(mcontext,Information.class);
+                    Intent intent = new Intent(mcontext, DocumentCategoryMain.class);
                     intent.putExtra("CategoryHomeTitle",mhlist.get(position).getHtitle());
                     mcontext.startActivity(intent);
 

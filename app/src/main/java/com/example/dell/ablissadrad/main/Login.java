@@ -1,5 +1,6 @@
 package com.example.dell.ablissadrad.main;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,11 @@ public class Login extends AppCompatActivity {
     private EditText editTextpassword, editTextuname;
     private Button buttonLogin ,signup;
     private String s;
+    final public ProgressDialog progressDialog;
+
+    public Login() {
+        progressDialog = null;
+    }
 
 
     @Override
@@ -56,7 +62,12 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final ProgressDialog progressDialog = new ProgressDialog(Login.this);
+                progressDialog.setTitle("Logging In");
+                progressDialog.setMessage("Please wait we Log we In");
+                progressDialog.show();
                 userLogin();
+
 
             }
         });
@@ -100,8 +111,10 @@ public class Login extends AppCompatActivity {
                 LoginResponse loginResponse = response.body();
 
                 if(loginResponse == null || loginResponse.isError()){
+                    progressDialog.dismiss();
                     editTextpassword.setError("User does not exists ");
                     Toast.makeText(Login.this,"Message",Toast.LENGTH_LONG).show();
+
                     return;
 
                 }else {
@@ -109,6 +122,7 @@ public class Login extends AppCompatActivity {
                       Intent intent = new Intent(Login.this, Home.class);
                       intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                       startActivity(intent);
+
 
 
                 }

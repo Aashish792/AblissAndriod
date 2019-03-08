@@ -82,23 +82,16 @@ public class Information extends AppCompatActivity
             public void onResponse(Call<List<Documents>> call, Response<List<Documents>> response) {
                 progressDialog.dismiss();
 //
-
-
-
                 List<Documents> docs = response.body();
-
-
+//
                 for (Documents h: docs){
                     Log.d("name",h.getTitle());
                     Log.d("bio",h.getDescription());
                 }
 
-                Document_Adapter document_adapter = new Document_Adapter(this,docs);
+                Document_Adapter document_adapter = new Document_Adapter(docs,this,null);
                 recyclerViewinformation.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerViewinformation.setAdapter(document_adapter);
-
-
-
 
             }
 

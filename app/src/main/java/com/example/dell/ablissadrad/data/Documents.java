@@ -10,6 +10,7 @@ public class Documents {
 
 
     private String doc_category;
+    @SerializedName("title")
     private String title;
     private String date;
     private String category;

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Document_Details">
+
+
+        <TextView
+            android:id="@+id/textviewdocumentscat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Document"
+            android:textSize="25sp"
+            android:textColor="@color/darkblack"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Here Lies Description"
+            android:textColor="@color/darkblack"
+            android:layout_below="@+id/textviewdocumentscat"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/description"
+                    >
+
+                <Button
+                    android:id="@+id/downloadromanigedocumentbutton"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFFF"
+                    android:text="Download Romainged Document"
+                    android:background="@drawable/button_signup" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/downloaddocumentbutton"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFFF"
+
+
+                    android:text="Download Normal Document"
+
+                    android:background="@drawable/button_signup"
+
+
+                    />
+
+                </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+
+</RelativeLayout>

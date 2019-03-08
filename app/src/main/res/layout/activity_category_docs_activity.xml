@@ -7,7 +7,7 @@
     tools:context=".main.CategoryActivity">
 
     <TextView
-        android:id="@+id/txtviewtitle"
+        android:id="@+id/txtviewdocscategorytitle"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,26 +16,7 @@
         android:textSize="36sp"
         android:layout_centerHorizontal="true"
 
-       />
-
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/txtviewtitle"
-    android:layout_margin="10dp"
-    >
-
-    <Button
-        android:id="@+id/bookshare"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="2dp"
-        android:background="@color/buttonsignup"
-        android:text="Click Here to Login to Book Share"
-        android:textColor="#FFFF"
-        android:textStyle="bold"
-        android:visibility="gone" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,25 +27,24 @@
         android:text="No data found"
         android:layout_marginTop="10dp"
         android:visibility="gone"
-        android:layout_below="@+id/bookshare"/>
-
+        android:layout_below="@+id/txtviewdocscategorytitle"/>
 
     <android.support.v7.widget.RecyclerView
 
-        android:id="@+id/recyclerview_selected"
+        android:id="@+id/recyclerview_docscat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bookshare"
+
+        android:layout_below="@+id/txtviewdocscategorytitle"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
 
 
     </android.support.v7.widget.RecyclerView>
-</RelativeLayout>
+    </RelativeLayout>
 
 
 
 
 
-</RelativeLayout>
 

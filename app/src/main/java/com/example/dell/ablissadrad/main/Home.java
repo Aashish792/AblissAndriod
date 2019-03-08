@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.ablissadrad.DocumentCategoryMain;
 import com.example.dell.ablissadrad.adapter.RecycleViewHomeAdapter;
 import com.example.dell.ablissadrad.data.Home_Data;
 import com.example.dell.ablissadrad.R;
@@ -131,7 +132,7 @@ public class Home extends AppCompatActivity
                 startActivity(c);
                 break;
             case R.id.nav_info:
-                Intent i= new Intent(Home.this,Information.class);
+                Intent i= new Intent(Home.this, DocumentCategoryMain.class);
                 startActivity(i);
                 break;
             case R.id.nav_forum:
