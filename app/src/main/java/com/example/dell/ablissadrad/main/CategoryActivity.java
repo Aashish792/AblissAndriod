@@ -92,10 +92,10 @@ public class CategoryActivity extends AppCompatActivity {
                 recyclerViewinformation.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerViewinformation.setAdapter(document_adapter);
 
-                if(doc.size()==0){
-
-                    textViewno.setVisibility(View.VISIBLE);
-                }
+//                if(doc.size()==0){
+//
+//                    textViewno.setVisibility(View.VISIBLE);
+                //}
 
 
             }

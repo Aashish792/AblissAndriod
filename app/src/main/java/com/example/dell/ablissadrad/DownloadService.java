@@ -56,7 +56,7 @@ public class DownloadService extends IntentService {
     private void initDownload(){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://download.learn2crack.com/")
+                .baseUrl("http://192.168.137.29:8000/media/")
                 .build();
 
         API retrofitInterface = retrofit.create(API.class);
@@ -126,7 +126,7 @@ public class DownloadService extends IntentService {
 
     private void sendIntent(Download download){
 
-        Intent intent = new Intent(DownloadActivity.MESSAGE_PROGRESS);
+        Intent intent = new Intent(Document_Details.MESSAGE_PROGRESS);
         intent.putExtra("download",download);
         LocalBroadcastManager.getInstance(DownloadService.this).sendBroadcast(intent);
     }

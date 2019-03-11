@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Document_Details">
@@ -66,21 +67,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/downloaddocumentbutton"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#FFFF"
+                        <Button
+                            android:id="@+id/downloaddocumentbutton"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/button_signup"
 
 
-                    android:text="Download Normal Document"
+                            android:text="View"
 
-                    android:background="@drawable/button_signup"
+                            android:textColor="#FFFF"
 
 
-                    />
+                            />
 
                 </RelativeLayout>
 
