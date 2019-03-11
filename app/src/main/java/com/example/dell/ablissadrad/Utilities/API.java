@@ -1,10 +1,14 @@
 package com.example.dell.ablissadrad.Utilities;
 
 import com.example.dell.ablissadrad.data.Documents;
-import com.example.dell.ablissadrad.data.Documents_List;
+//import com.example.dell.ablissadrad.data.Documents_List;
 import com.example.dell.ablissadrad.data.LoginResponse;
 
 import java.util.List;
+
+
+import retrofit2.http.Streaming;
+
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -20,7 +24,7 @@ public interface API {
 
 
     @FormUrlEncoded
-    @POST("users/")
+    @POST("api/users/")
     Call<ResponseBody> createruser(
             @Field("name") String name,
             @Field("username") String username,
@@ -29,18 +33,23 @@ public interface API {
     );
 
     @FormUrlEncoded
-    @POST("Validusers/")
+    @POST("api/Validusers/")
     Call<LoginResponse> Validateuser(
             @Field("username") String username,
             @Field("password") String password
     );
 
-    @GET("documentation")
+    @GET("api/documentation")
     Call<List<Documents>> getDocuments();
 
-    @GET("search/{category}")
+    @GET("api/search/{category}")
     Call<List<Documents>> getdocs(@Path("category") String title);
 
-    @GET("doc_category/{category}")
+    @GET("api/doc_category/{category}")
     Call<List<Documents>> getdocuments(@Path("category")String title);
+
+
+    @GET("/media/documents/604_Aashish_K.C.pptx")
+    @Streaming
+    Call<ResponseBody> downloadFile();
 }
