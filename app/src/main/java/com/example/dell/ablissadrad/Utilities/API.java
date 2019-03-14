@@ -19,6 +19,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface API {
 
@@ -48,8 +49,10 @@ public interface API {
     @GET("api/doc_category/{category}")
     Call<List<Documents>> getdocuments(@Path("category")String title);
 
-
-    @GET("/media/documents/604_Aashish_K.C.pptx")
     @Streaming
+    @GET("media/documents/IMG_4834.PNG")
     Call<ResponseBody> downloadFile();
+
+//    @GET
+//    Call<ResponseBody> downloadFile(@Url String url);
 }
